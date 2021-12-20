@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/drawable/button_focused.xml" value="1.1785714285714286" />
+        <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/drawable/button_normal.xml" value="0.17395833333333333" />
+        <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/drawable/button_pressed.xml" value="0.17395833333333333" />
+        <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/drawable/button_selector.xml" value="0.17395833333333333" />
+        <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/layout/activity_bottom_nav.xml" value="0.16299559471365638" />
         <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/layout/activity_home.xml" value="0.26766304347826086" />
         <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/layout/activity_main.xml" value="0.15729166666666666" />
+        <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1578125" />
+        <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/layout/fragment_home.xml" value="0.10818713450292397" />
+        <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1578125" />
         <entry key="..\:/flutterprojects/synckotlinapp/app/src/main/res/menu/main_menu.xml" value="0.14270833333333333" />
       </map>
     </option>

@@ -39,4 +39,9 @@ class MainActivity : AppCompatActivity() {
         var hIntent = Intent(this,HomeActivity::class.java)
         startActivity(hIntent)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish();
+    }
 }
