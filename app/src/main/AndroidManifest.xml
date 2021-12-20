@@ -12,7 +12,9 @@
         <activity
             android:name=".bottomnav.BottomNavActivity"
             android:exported="true"
-            android:label="@string/title_activity_bottom_nav" >
+            android:label="@string/title_activity_bottom_nav"
+            android:theme="@style/logoFont.red"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
