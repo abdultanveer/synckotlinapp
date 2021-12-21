@@ -2,6 +2,7 @@ package com.abdul.synckotlinapp;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 
 public class DownloadTask extends AsyncTask<String,Integer,Void> {
@@ -12,6 +13,12 @@ public class DownloadTask extends AsyncTask<String,Integer,Void> {
 
     public DownloadTask(ProgressBar progressBar) {
         mProgressBar = progressBar;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -39,5 +46,11 @@ public class DownloadTask extends AsyncTask<String,Integer,Void> {
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
         mProgressBar.setProgress(values[0]);
+    }
+
+    @Override
+    protected void onPostExecute(Void unused) {
+        super.onPostExecute(unused);
+        mProgressBar.setVisibility(View.INVISIBLE);
     }
 }
