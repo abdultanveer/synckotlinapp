@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Synckotlinapp">
         <activity
+            android:name=".WhoWroteActivity"
+            android:exported="false" />
+        <activity
             android:name=".bottomnav.BottomNavActivity"
             android:exported="true"
             android:label="@string/title_activity_bottom_nav"
-            android:theme="@style/logoFont.red"
-            >
-
-        </activity>
+            android:theme="@style/logoFont.red"></activity>
         <activity
             android:name=".HomeActivity"
             android:exported="true">
@@ -28,9 +28,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
