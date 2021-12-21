@@ -6,11 +6,11 @@ import android.widget.ProgressBar
 
 class HomeActivity : AppCompatActivity() {
     lateinit var progressBar: ProgressBar
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home
-                progressBar = findViewById(R.id.progressBar)
+        setContentView(R.layout.activity_home)
+        progressBar = findViewById(R.id.progressBar)
     }
 
     fun clickHandler(view: android.view.View) {
