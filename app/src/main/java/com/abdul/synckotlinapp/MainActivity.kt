@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
@@ -35,9 +36,12 @@ class MainActivity : AppCompatActivity() {
 
     fun handleClick(view: android.view.View) {
         var email  = emailEt.text.toString()
-        Toast.makeText(this,email,Toast.LENGTH_SHORT).show()
+        var tvMain:TextView = findViewById(R.id.tvMain)
+        tvMain.text = email
+
+       /* Toast.makeText(this,email,Toast.LENGTH_SHORT).show()
         var hIntent = Intent(this,HomeActivity::class.java)
-        startActivity(hIntent)
+        startActivity(hIntent)*/
     }
 
     override fun onBackPressed() {
