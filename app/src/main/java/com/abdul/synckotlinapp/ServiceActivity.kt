@@ -69,8 +69,16 @@ class ServiceActivity : AppCompatActivity() {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         //pending intent -- OS firing the intent on behalf of your app, even if your app is not running
+        //cab at 3am - i sleep - reception will book n wake me up
         val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
+
+        val snoozeIntent = Intent(this, SmsReceiver::class.java).apply {
+          /*  action = ACTION_SNOOZE
+            putExtra(EXTRA_NOTIFICATION_ID, 0)*/
+        }
+        val snoozePendingIntent: PendingIntent =
+            PendingIntent.getBroadcast(this, 0, snoozeIntent, 0)
 
         var builder = NotificationCompat.Builder(this, "CHANNEL_ID")
             .setSmallIcon(R.drawable.ic_home_black_24dp)
@@ -78,6 +86,8 @@ class ServiceActivity : AppCompatActivity() {
             .setContentText("content text")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
+            .addAction(R.drawable.ic_baseline_snooze_24, getString(R.string.snooze),
+                snoozePendingIntent)
         createNotificationChannel()
         with(NotificationManagerCompat.from(this)) {
             // notificationId is a unique int for each notification that you must define

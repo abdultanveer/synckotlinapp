@@ -18,11 +18,12 @@ class SmsReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-        showSmsBody(intent,context);
+        Toast.makeText(context,"sms receiver",Toast.LENGTH_SHORT).show()
+        /*showSmsBody(intent,context);
         //check if the sms starts with the password if yes
         var intent = Intent(context,MyService::class.java)
         intent.putExtra("fromphno","5554")
-        context.startService(intent)
+        context.startService(intent)*/
     }
 
     private fun showSmsBody(intent: Intent, context: Context) {

@@ -5,4 +5,5 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="instructions">instructions</string>
+    <string name="snooze">snooze</string>
 </resources>
