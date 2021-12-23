@@ -1,12 +1,18 @@
 package com.abdul.synckotlinapp
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
 class ServiceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +60,37 @@ class ServiceActivity : AppCompatActivity() {
         }
 
         override fun onServiceDisconnected(arg0: ComponentName) {
+        }
+    }
+
+    fun showNotification(view: android.view.View) {
+        var builder = NotificationCompat.Builder(this, "CHANNEL_ID")
+            .setSmallIcon(R.drawable.ic_home_black_24dp)
+            .setContentTitle("notif title")
+            .setContentText("content text")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        createNotificationChannel()
+        with(NotificationManagerCompat.from(this)) {
+            // notificationId is a unique int for each notification that you must define
+            notify(1, builder.build())
+        }
+
+    }
+
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "promotions channel"
+            val descriptionText = "description for promotions channel"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("CHANNEL_ID", name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
         }
     }
 }
