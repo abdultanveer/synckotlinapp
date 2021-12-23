@@ -2,6 +2,7 @@ package com.abdul.synckotlinapp
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -64,11 +65,19 @@ class ServiceActivity : AppCompatActivity() {
     }
 
     fun showNotification(view: android.view.View) {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        //pending intent -- OS firing the intent on behalf of your app, even if your app is not running
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+
+
         var builder = NotificationCompat.Builder(this, "CHANNEL_ID")
             .setSmallIcon(R.drawable.ic_home_black_24dp)
             .setContentTitle("notif title")
             .setContentText("content text")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
         createNotificationChannel()
         with(NotificationManagerCompat.from(this)) {
             // notificationId is a unique int for each notification that you must define
