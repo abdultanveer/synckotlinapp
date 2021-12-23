@@ -19,8 +19,8 @@ class MyService : Service() {
         Log.i(TAG,"onstartcommand-myservice")
         var songname = intent?.getStringExtra("songname")
         Log.i(TAG,"i am playing--"+songname)
-        var  mplayer = MediaPlayer.create(this,R.raw.music)
-        mplayer.start()
+        /*var  mplayer = MediaPlayer.create(this,R.raw.music)
+        mplayer.start()*/
 
 
         return super.onStartCommand(intent, flags, startId)
