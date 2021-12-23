@@ -36,11 +36,16 @@ class ServiceActivity : AppCompatActivity() {
         bindService(intent,connection, BIND_AUTO_CREATE)
     }
 
+    private lateinit var mService: MyService
+
+
     private val connection = object : ServiceConnection {
 
-        override fun onServiceConnected(className: ComponentName, service: IBinder) {
-            // We've bound to LocalService, cast the IBinder and get LocalService instance
-
+        override fun onServiceConnected(className: ComponentName, binder: IBinder) {
+               // var myService = MyService() -- creating a service -- setting up a catering service - iam not going to setup
+            val binder = binder as MyService.LocalBinder //as = typecasting
+            mService = binder.getService()
+            var score = mService.randomNumber  //now you can order a lunch to be prepared by the catering service
         }
 
         override fun onServiceDisconnected(arg0: ComponentName) {

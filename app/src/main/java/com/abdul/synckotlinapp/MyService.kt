@@ -12,10 +12,10 @@ import java.util.*
 class MyService : Service() {
     var TAG = MyService::class.java.simpleName
 
-    private val mGenerator = Random()
+    private val cricScore = Random()
 
     val randomNumber: Int
-    get() = mGenerator.nextInt(100)
+    get() = cricScore.nextInt(100)
 
 
 
