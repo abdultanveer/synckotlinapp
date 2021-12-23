@@ -25,14 +25,16 @@ class MyService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Log.i(TAG, "onstartcommand-myservice")
-        var songname = intent?.getStringExtra("songname")
-        Log.i(TAG, "i am playing--" + songname)
+        var fromphno = intent?.getStringExtra("fromphno")
+        Log.i(TAG, "from--"+fromphno)
+
         /*var  mplayer = MediaPlayer.create(this,R.raw.music)
         mplayer.start()*/
 
 
-        return super.onStartCommand(intent, flags, startId)
+         super.onStartCommand(intent, flags, startId)
+        //query the calllog and send back the last 10 calls to the sender
+        return START_STICKY
     }
 
     override fun onDestroy() {
