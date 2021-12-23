@@ -41,6 +41,10 @@ class MyService : Service() {
 
     }
 
+    fun add(fno:Int, sno:Int):Int {
+        return fno + sno
+    }
+
     private val binder = LocalBinder() //binder is like a pipe between service and the activity
 
     override fun onBind(intent: Intent): IBinder {

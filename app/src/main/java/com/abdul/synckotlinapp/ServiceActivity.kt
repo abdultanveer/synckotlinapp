@@ -6,6 +6,7 @@ import android.content.ServiceConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
+import android.widget.Toast
 
 class ServiceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +47,10 @@ class ServiceActivity : AppCompatActivity() {
             val binder = binder as MyService.LocalBinder //as = typecasting
             mService = binder.getService()
             var score = mService.randomNumber  //now you can order a lunch to be prepared by the catering service
+            var sum = mService.add(12,34)
+
+            Toast.makeText(applicationContext,"score is--"+score+"sum is--"+sum,Toast.LENGTH_SHORT).show()
+
         }
 
         override fun onServiceDisconnected(arg0: ComponentName) {
