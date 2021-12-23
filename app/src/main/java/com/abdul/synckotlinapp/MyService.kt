@@ -16,6 +16,9 @@ class MyService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i(TAG,"onstartcommand-myservice")
+        var songname = intent?.getStringExtra("songname")
+        Log.i(TAG,"i am playing--"+songname)
+
 
         return super.onStartCommand(intent, flags, startId)
     }

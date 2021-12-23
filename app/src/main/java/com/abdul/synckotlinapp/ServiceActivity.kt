@@ -24,6 +24,7 @@ class ServiceActivity : AppCompatActivity() {
 
     private fun startMyService() {
         var intent = Intent(this,MyService::class.java)
+        intent.putExtra("songname","rafisong.mp3")
         startService(intent)
         }
 }
